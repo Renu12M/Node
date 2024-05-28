@@ -1,0 +1,96 @@
+
+    <h3>temple-driven form</h3>
+    
+    
+        <h4 [innerText]="title"></h4>
+            
+        
+
+
+  
+        <form #contactForm="ngForm" (submit)="onSubmit(contactForm)" >
+   
+            <div class="form-group" >
+        <p>
+    <label>First Name</label>
+    <input type="text"  name="Firstname" disabled="false" #firstname="ngModel" class="form-group" [(ngModel)]=contact.firstName [ngModelOptions]="{standalone: true}">
+    <span class="text-danger" *ngIf="!firstname.valid"> Invalid Firstname</span>
+   </p>
+        
+    
+    
+    <p>
+    <label>Last Name</label>
+    <input type="text"  name="Lastname" id="Lastname"   [(ngModel)]=contact.lastName>
+    </p>
+    <p>
+    <label>Email</label>
+    <input type="text"  name="Email" id="Email"   [(ngModel)]="contact.emailId">
+    </p>
+    <p>
+
+    <label for="gender">Gender</label>
+
+    <input type="radio" name="gender" id ="gender"  value="Male" [(ngModel)]=contact.Gender/> Male
+     <input type="radio" name="gender" id="gender" value="female" [(ngModel)]=contact.Gender   /> Female
+    </p>
+    <div ngModelGroup="adress"></div>
+    <p>
+        <label for="street">Street</label>
+        <input type="text" name="street"  [(ngModel)]=contact.address.street> </p>
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="City" [(ngModel)]=contact.address.city> </p>
+            <p><label for="PinCode">Pincode</label>
+                <input type="text" name="PinCode"  [(ngModel)]=contact.address.pinCode> </p>
+    <p>
+    <label>Country</label>      
+    <select name="Country" id="Country" >
+    <option value=" ">Select</option>
+    <option *ngFor="let Country of countryList " [ngValue]="Country">{{Country.Name}}</option>
+   
+    </select>
+    </p>
+    <p>
+        <label>Insurance Name</label>
+    <select name="Insurance" id="Insurance" >
+        <option value=" ">Select</option>
+        <option *ngFor="let Insurance of insuranceList" [ngValue]="Insurance">{{Insurance.Name1}}</option>
+    </select>
+    </p>
+    <p>
+        <label>Insurance ID</label>
+        <input type="checkbox" name="A101">A101
+        <input type="checkbox" name="B101">B101
+        <input type="checkbox" name="C101">C101
+        </p>
+        
+   
+    
+    <p>
+    <label>Insurance Type</label>
+
+    <input type="radio" name="Children">Children
+    <input type="radio" name="Adults">Adults
+    <input type="radio" name="senior Citizen">Senior Citizen
+  
+      </div>
+    
+
+    <p><label>TimeLine</label>
+        <select name="InsurancetimeLine" id="Insurancetime" >
+            <option value=" ">Select</option>
+            <option *ngFor="let Insurancetime of timelineList" [ngValue]="Insurancetime">{{Insurancetime.Name2}}</option>
+        </select>
+    
+    <p> 
+        <button type="Submit" >Submit</button>
+    </p>
+    
+
+ 
+</form>
+
+
+
+
